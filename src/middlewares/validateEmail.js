@@ -6,7 +6,7 @@ const utilEmail = (email) => {
 const messageInvalidEmail = { message: '"email" must be a valid email' };
 const validateEmail = (req, res, next) => {
   const { email } = req.body;
-  if (!utilEmail(email)) res.status(400).json(messageInvalidEmail);
+  if (!utilEmail(email)) return res.status(400).json(messageInvalidEmail);
   next();
 };
 
