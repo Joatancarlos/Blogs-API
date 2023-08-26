@@ -1,4 +1,5 @@
 const route = require('express').Router();
+const validateJWT = require('../auth/validateJWT');
 const { UserController } = require('../controllers');
 // const validateDisplayName = require('../middlewares/validateDisplayName');
 // const validateEmail = require('../middlewares/validateEmail');
@@ -6,10 +7,7 @@ const { UserController } = require('../controllers');
 // const validatePassword = require('../middlewares/validatePassword');
 const userValidations = require('../middlewares/userValidations');
  
-route.post(
-'/',
-userValidations,
-UserController.createUser,
-);
+route.post('/', userValidations, UserController.createUser);
+route.get('/', validateJWT, UserController.getAllUser);
 
 module.exports = route;
