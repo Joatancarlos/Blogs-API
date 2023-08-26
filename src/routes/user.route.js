@@ -9,5 +9,6 @@ const userValidations = require('../middlewares/userValidations');
  
 route.post('/', userValidations, UserController.createUser);
 route.get('/', validateJWT, UserController.getAllUser);
+route.get('/:id', validateJWT, UserController.getUserById);
 
 module.exports = route;
