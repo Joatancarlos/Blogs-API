@@ -27,9 +27,25 @@ const updatePost = async (req, res) => {
   return res.status(status).json(data);
 };
 
+const deletePost = async (req, res) => {
+  const { id } = req.params;
+  const idUser = req.user.id;
+  const { status, data } = await postService.deletePost(id, idUser);
+  return res.status(status).json(data);
+};
+
+const searchPosts = async (req, res) => {
+  const { q } = req.query;
+  console.log(req.query, 'QUERY');
+  const { status, data } = await postService.searchPosts(q);
+  return res.status(status).json(data);
+};
+
 module.exports = {
   createPost,
   getAllPosts,
   getPostById,
   updatePost,
+  searchPosts,
+  deletePost,
 };

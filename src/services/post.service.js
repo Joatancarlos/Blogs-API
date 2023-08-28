@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { BlogPost, PostCategory, User, Category } = require('../models');
 const { getAllCategories } = require('./categories.service');
 
@@ -76,9 +77,39 @@ const updatePost = async ({ title, content }, id, idUser) => {
   return { status: 200, data: updatedPost };
 };
 
+const deletePost = async (id, idUser) => {
+  const post = await BlogPost.findByPk(id);
+  if (!post) return { status: 404, data: { message: 'Post does not exist' } };
+  if (post.userId !== idUser) return { status: 401, data: { message: 'Unauthorized user' } };
+  await BlogPost.destroy({ where: { id } });
+  return { status: 204 };
+};
+
+const searchPosts = async (q) => {
+  const posts = await BlogPost.findAll(
+    { where: { [Op.or]: [
+      { title: { [Op.like]: `%${q}%` } },
+      { content: { [Op.like]: `%${q}%` } },
+    ] },
+    include: [{
+      model: User,
+      as: 'user',
+      attributes: { exclude: ['password'] },
+    },
+    {
+      model: Category,
+      as: 'categories',
+      through: { attributes: [] },
+    }] },
+  );
+  return { status: 200, data: posts };
+};
+
 module.exports = {
   createPost,
   getAllPosts,
   getPostById,
   updatePost,
+  deletePost,
+  searchPosts,
 };
