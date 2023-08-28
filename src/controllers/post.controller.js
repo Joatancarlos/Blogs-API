@@ -9,6 +9,26 @@ const createPost = async (req, res) => {
   res.status(status).json(data);
 };
 
+const getAllPosts = async (_req, res) => {
+  const { status, data } = await postService.getAllPosts();
+  return res.status(status).json(data);
+};
+
+const getPostById = async (req, res) => {
+  const { id } = req.params;
+  const { status, data } = await postService.getPostById(id);
+  return res.status(status).json(data);
+};
+
+const updatePost = async (req, res) => {
+  const { id } = req.params;
+  const { status, data } = await postService.updatePost(req.body, id);
+  return res.status(status).json(data);
+};
+
 module.exports = {
   createPost,
+  getAllPosts,
+  getPostById,
+  updatePost,
 };

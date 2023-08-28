@@ -1,4 +1,4 @@
-const { BlogPost, PostCategory } = require('../models');
+const { BlogPost, PostCategory, User, Category } = require('../models');
 const { getAllCategories } = require('./categories.service');
 
 const createPost = async (title, content, categoryIds, userId) => {
@@ -19,6 +19,65 @@ const createPost = async (title, content, categoryIds, userId) => {
   return { status: 201, data: newPosts };
 };
 
+const getAllPosts = async () => {
+  const allPosts = await BlogPost.findAll(
+    { include: [{
+      model: User,
+      as: 'user',
+      attributes: { exclude: ['password'] },
+    }, 
+    {
+      model: Category,
+      as: 'categories',
+      through: { attributes: [] },
+    }] },
+  );
+  return { status: 200, data: allPosts };
+};
+
+const getPostById = async (id) => {
+  const post = await BlogPost.findByPk(
+    id,
+    { include: [{
+      model: User,
+      as: 'user',
+      attributes: { exclude: ['password'] },
+    },
+    {
+      model: Category,
+      as: 'categories',
+      through: { attributes: [] },
+    }] },
+);
+  if (!post) {
+    return { status: 404, data: { message: 'Post does not exist' } };
+  }
+  return { status: 200, data: post };
+};
+
+const updatePost = async ({ title, content }, id) => {
+  const post = await BlogPost.findByPk(id);
+  if (!post) return { status: 404, data: { message: 'Post does not exist' } };
+  await BlogPost.update({ title, content }, { where: { id } });
+  const updatedPost = await BlogPost.findByPk(
+    id,
+    { include: [{
+      model: User,
+      as: 'user',
+      attributes: { exclude: ['password'] },
+    },
+    {
+      model: Category,
+      as: 'categories',
+      through: { attributes: [] },
+    }] },
+);
+  return { status: 200, data: updatedPost };
+};
+
 module.exports = {
   createPost,
+  getAllPosts,
+  getPostById,
+  updatePost,
 };
