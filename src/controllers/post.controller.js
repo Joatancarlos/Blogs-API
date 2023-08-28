@@ -22,7 +22,8 @@ const getPostById = async (req, res) => {
 
 const updatePost = async (req, res) => {
   const { id } = req.params;
-  const { status, data } = await postService.updatePost(req.body, id);
+  const idUser = req.user.id;
+  const { status, data } = await postService.updatePost(req.body, id, idUser);
   return res.status(status).json(data);
 };
 

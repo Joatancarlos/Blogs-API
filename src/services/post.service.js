@@ -55,9 +55,10 @@ const getPostById = async (id) => {
   return { status: 200, data: post };
 };
 
-const updatePost = async ({ title, content }, id) => {
+const updatePost = async ({ title, content }, id, idUser) => {
   const post = await BlogPost.findByPk(id);
   if (!post) return { status: 404, data: { message: 'Post does not exist' } };
+  if (post.userId !== idUser) return { status: 401, data: { message: 'Unauthorized user' } };
   await BlogPost.update({ title, content }, { where: { id } });
   const updatedPost = await BlogPost.findByPk(
     id,

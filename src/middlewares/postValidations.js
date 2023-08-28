@@ -20,15 +20,7 @@ const postPutValidation = (req, res, next) => {
   next();
 };
 
-const sameUser = (req, res, next) => {
-  const { id } = req.params;
-  const idUser = req.user.id;
-  if (Number(id) !== idUser) return res.status(401).json({ message: 'Unauthorized user' });
-  next();
-};
-
 module.exports = {
   postValidation,
   postPutValidation,
-  sameUser,
 };
