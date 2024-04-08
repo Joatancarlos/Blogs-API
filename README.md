@@ -43,7 +43,7 @@
   </br>
   
   ```bash
-  $ docker-compose up -d --build # Irá subir os´containers 'blogs_api' e 'blogs_api_db'
+  $ docker-compose up -d --build # Irá subir os containers 'blogs_api' e 'blogs_api_db'
 
   $ docker exec -it blogs_api bash # Irá executar o container 'blogs_api'
 
