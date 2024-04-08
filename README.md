@@ -1,3 +1,8 @@
+# Índice
+  - <a href="#tecnologias-necessárias">Tecnologias Necessárias</a>
+  - <a href="#como-rodar">Como rodar</a>
+  - <a href="#funcionalidades">Funcionalidades</a>
+
 # Tecnologias necessárias
 <ul>
   <a href="https://docs.docker.com/compose/install/" target="_blank">
@@ -11,4 +16,12 @@
 # Como rodar
 <ol>
   <li>Faça o clone ou download do projeto</li>
+  
+  ```bash
+    git clone git@github.com:Joatancarlos/Blogs-API.git
+
+  ```
 </ol>
+
+# Funcionalidades
+ - Cadastrar clientes
