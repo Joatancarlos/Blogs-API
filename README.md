@@ -16,9 +16,36 @@
 # Como rodar
 <ol>
   <li>Faça o clone ou download do projeto</li>
-  
+  </br>
+
   ```bash
     git clone git@github.com:Joatancarlos/Blogs-API.git
+
+  ```
+
+  <li>Entre na pasta do projeto</li>
+  </br>
+  
+  ```bash
+    cd Blogs-API/
+
+  ```
+
+  <li>Instale as dependências</li>
+  </br>
+  
+  ```bash
+    npm install
+
+  ```
+
+  <li>Rode o Docker</li>
+  </br>
+  
+  ```bash
+    $ docker-compose up -d --build # Irá subir os´containers 'blogs_api' e 'blogs_api_db'
+
+    $ docker exec -it blogs_api bash # Irá executar o container 'blogs_api'
 
   ```
 </ol>
