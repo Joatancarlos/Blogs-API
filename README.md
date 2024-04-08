@@ -48,7 +48,21 @@
   $ docker exec -it blogs_api bash # Irá executar o container 'blogs_api'
 
   ```
+
+  <li>Execute os comandos para criar inserir os dados dentro do terminal do docker</li>
+  </br>
+  
+  ```bash
+  npm run prestart && npm run seed
+  ```
+
+  <li>Rode o backend</li>
+  </br>
+  
+  ```bash
+  npm run dev
+  ```
 </ol>
 
 # Funcionalidades
- - Cadastrar clientes
+ 
