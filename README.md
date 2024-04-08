@@ -19,7 +19,7 @@
   </br>
 
   ```bash
-    git clone git@github.com:Joatancarlos/Blogs-API.git
+  git clone git@github.com:Joatancarlos/Blogs-API.git
 
   ```
 
@@ -27,7 +27,7 @@
   </br>
   
   ```bash
-    cd Blogs-API/
+  cd Blogs-API/
 
   ```
 
@@ -35,7 +35,7 @@
   </br>
   
   ```bash
-    npm install
+  npm install
 
   ```
 
@@ -43,9 +43,9 @@
   </br>
   
   ```bash
-    $ docker-compose up -d --build # Irá subir os´containers 'blogs_api' e 'blogs_api_db'
+  $ docker-compose up -d --build # Irá subir os´containers 'blogs_api' e 'blogs_api_db'
 
-    $ docker exec -it blogs_api bash # Irá executar o container 'blogs_api'
+  $ docker exec -it blogs_api bash # Irá executar o container 'blogs_api'
 
   ```
 </ol>
