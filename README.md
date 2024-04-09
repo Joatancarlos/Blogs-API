@@ -65,4 +65,11 @@
 </ol>
 
 # Funcionalidades
- 
+- Cadastrar um usuário através do endpoint POST `/user`.
+- Acessar a conta atráves do endpoint POST `/login`.
+- Visualizar todos os usuários cadastrados através do endpoint GET `/user`.
+- Visualizar um usuário específico com base no id através do endpoint GET `/user/:id`.
+- Criar uma nova Categoria através do endpoint POST `/categories`.
+- Visualizar todas as Categorias através do endpoint GET `/categoriess`.
+- Criar uma postagem através do endpoint POST `/post`.
+- Visualizar todas as Postagem com seus respectivos donos e categorias através do endpoint GET `/post`.
