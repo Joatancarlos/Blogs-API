@@ -73,3 +73,8 @@
 - Visualizar todas as Categorias através do endpoint GET `/categoriess`.
 - Criar uma postagem através do endpoint POST `/post`.
 - Visualizar todas as Postagem com seus respectivos donos e categorias através do endpoint GET `/post`.
+- Visualizar uma postagem específica com base no id através do endpoint GET `/post/:id`.
+- Atualizar uma postagem sendo o proprietário dela através do endpoint PUT `/post/:id`.
+- Deletar uma postagem sendo o proprietário dela através do endpoint DELETE `/post/:id`.
+- Deletar um usuário sendo o proprietário da conta através do endpoint DELETE `/user/me`.
+- Buscar todas as postagem que contenham em seu título ou conteúdo o termo passado na URL através do endpoint GET `/post/search?q=:searchTerm`. 
