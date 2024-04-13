@@ -76,6 +76,7 @@
     // a imagem não é obrigatória
   } 
   ``` 
+  
 - Retorno
   ```json
     {
@@ -102,7 +103,7 @@
 <hr>
 
 ### Visualizar todos os usuários cadastrados através do endpoint GET `/user`.
-- **:warning: OBS: Será feita uma validação do token!
+OBS: Será feita uma validação do token!
 
 - Exemplo de retorno da requisição:
   ```json
