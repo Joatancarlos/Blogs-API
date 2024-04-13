@@ -76,7 +76,7 @@
     // a imagem não é obrigatória
   } 
   ``` 
-  
+
 - Retorno
   ```json
     {
@@ -103,7 +103,11 @@
 <hr>
 
 ### Visualizar todos os usuários cadastrados através do endpoint GET `/user`.
-OBS: Será feita uma validação do token!
+- OBS: Será necessário enviar o token no header da requisição!
+
+  ```
+    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZGlzcGxheU5hbWUiOiJGdWxhbm8gU2FudG9zIiwiaW1hZ2UiOiJodHRwOi8vNC5icC5ibG9nc3BvdC5jb20vX1lBNTBhZFEtN3ZRL1MxZ2ZSXzZ1ZnBJL0FBQUFBQUFBQUFrLzFFckpHZ1JXWkRnL1M0NS9icmV0dC5wbmciLCJlbWFpbCI6ImZ1bGFub3NhbnRvc0BnbWFpbC5jb20iLCJpYXQiOjE3MTI5NjY2MTYsImV4cCI6MTcxMzU3MTQxNn0.vdklm0BPh3cj-4BJrAsM01sIlPvJRGJqs1KZLgraArQ
+  ```
 
 - Exemplo de retorno da requisição:
   ```json
@@ -123,13 +127,47 @@ OBS: Será feita uma validação do token!
   ]
   ```
 
-- Visualizar um usuário específico com base no id através do endpoint GET `/user/:id`.
-- Criar uma nova Categoria através do endpoint POST `/categories`.
-- Visualizar todas as Categorias através do endpoint GET `/categoriess`.
-- Criar uma postagem através do endpoint POST `/post`.
-- Visualizar todas as Postagem com seus respectivos donos e categorias através do endpoint GET `/post`.
-- Visualizar uma postagem específica com base no id através do endpoint GET `/post/:id`.
-- Atualizar uma postagem sendo o proprietário dela através do endpoint PUT `/post/:id`.
-- Deletar uma postagem sendo o proprietário dela através do endpoint DELETE `/post/:id`.
-- Deletar um usuário sendo o proprietário da conta através do endpoint DELETE `/user/me`.
-- Buscar todas as postagem que contenham em seu título ou conteúdo o termo passado na URL através do endpoint GET `/post/search?q=:searchTerm`. 
+<hr>
+
+### Visualizar um usuário específico com base no id através do endpoint GET `/user/:id`.
+- OBS: Será necessário enviar o token no header da requisição!
+
+- Retorno para o id 1
+  ```json
+      {
+        "id": 1,
+        "displayName": "Brett Wiltshire",
+        "email": "brett@email.com",
+        "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
+      }
+    ```
+
+<hr>
+
+
+### Criar uma nova Categoria através do endpoint POST `/categories`.
+- OBS: Será necessário enviar o token no header da requisição!
+
+### Visualizar todas as Categorias através do endpoint GET `/categoriess`.
+- OBS: Será necessário enviar o token no header da requisição!
+
+### Criar uma postagem através do endpoint POST `/post`.
+- OBS: Será necessário enviar o token no header da requisição!
+
+### Visualizar todas as Postagem com seus respectivos donos e categorias através do endpoint GET `/post`.
+- OBS: Será necessário enviar o token no header da requisição!
+
+### Visualizar uma postagem específica com base no id através do endpoint GET `/post/:id`.
+- OBS: Será necessário enviar o token no header da requisição!
+
+### Atualizar uma postagem sendo o proprietário dela através do endpoint PUT `/post/:id`.
+- OBS: Será necessário enviar o token no header da requisição!
+
+### Deletar uma postagem sendo o proprietário dela através do endpoint DELETE `/post/:id`.
+- OBS: Será necessário enviar o token no header da requisição!
+
+### Deletar um usuário sendo o proprietário da conta através do endpoint DELETE `/user/me`.
+- OBS: Será necessário enviar o token no header da requisição!
+
+### Buscar todas as postagem que contenham em seu título ou conteúdo o termo passado na URL através do endpoint GET `/post/search?q=:searchTerm`. 
+- OBS: Será necessário enviar o token no header da requisição!
