@@ -77,7 +77,7 @@
   } 
   ``` 
 
-- Retorno
+- Exemplo de retorno da requisição
   ```json
     {
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZGlzcGxheU5hbWUiOiJGdWxhbm8gU2FudG9zIiwiZW1haWwiOiJmdWxhbm9zYW50b3NAZ21haWwuY29tIiwiaW1hZ2UiOiJodHRwOi8vNC5icC5ibG9nc3BvdC5jb20vX1lBNTBhZFEtN3ZRL1MxZ2ZSXzZ1ZnBJL0FBQUFBQUFBQUFrLzFFckpHZ1JXWkRnL1M0NS9icmV0dC5wbmciLCJpYXQiOjE3MTI5NjcxMzYsImV4cCI6MTcxMzU3MTkzNn0.L4R9fP6RbUDj8l_jNzy-xUuPx9bryEQeOaaFGjAwvfo"
@@ -93,7 +93,7 @@
   }
   ```
 
-- Retorno
+- Exemplo de retorno da requisição
   ```json
     {
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZGlzcGxheU5hbWUiOiJGdWxhbm8gU2FudG9zIiwiZW1haWwiOiJmdWxhbm9zYW50b3NAZ21haWwuY29tIiwiaW1hZ2UiOiJodHRwOi8vNC5icC5ibG9nc3BvdC5jb20vX1lBNTBhZFEtN3ZRL1MxZ2ZSXzZ1ZnBJL0FBQUFBQUFBQUFrLzFFckpHZ1JXWkRnL1M0NS9icmV0dC5wbmciLCJpYXQiOjE3MTI5NjcxMzYsImV4cCI6MTcxMzU3MTkzNn0.L4R9fP6RbUDj8l_jNzy-xUuPx9bryEQeOaaFGjAwvfo"
@@ -132,7 +132,7 @@
 ### Visualizar um usuário específico com base no id através do endpoint GET `/user/:id`.
 - OBS: Será necessário enviar o token no header da requisição!
 
-- Retorno para o id 1
+- Exemplo de retorno da requisição para o id 1
   ```json
       {
         "id": 1,
@@ -148,20 +148,172 @@
 ### Criar uma nova Categoria através do endpoint POST `/categories`.
 - OBS: Será necessário enviar o token no header da requisição!
 
+- Exemplo de corpo da requisição:
+  ```json
+    {
+    "name": "Música"
+    } 
+  ```
+
+- Retorno:
+  ```json
+    {
+      "id": 1,
+      "name": "Música"
+    }
+  ```
+
+<hr>
+
 ### Visualizar todas as Categorias através do endpoint GET `/categoriess`.
 - OBS: Será necessário enviar o token no header da requisição!
+
+- Exemplo de retorno da requisição:
+  ```json
+    [
+      {
+        "id": 1,
+        "name": "Música"
+      },
+      {
+        "id": 2,
+        "name": "Kotlin"
+      },
+      {
+        "id": 3,
+        "name": "Android"
+      }
+    ]
+  ```
+
+<hr>
 
 ### Criar uma postagem através do endpoint POST `/post`.
 - OBS: Será necessário enviar o token no header da requisição!
 
+- Exemplo do corpo da requisição:
+  ```json
+  {
+    "title": "Novidades da programação",
+    "content": "Neque porro quisquam est qui dolorem ipsum quia dolor.",
+    "categoryIds": [1, 2]
+  }
+  ```  
+
+- Exemplo de retorno da requisição:
+  ```json
+  {
+    "id": 1,
+    "title": "Novidades da programação",
+    "content": "Neque porro quisquam est qui dolorem ipsum quia dolor.",
+    "userId": 2,
+    "published": "2024-04-13T10:05:41.000Z",
+    "updated": "2024-04-13T10:05:41.000Z",
+  }
+  ``` 
+
+<hr>
+
+
 ### Visualizar todas as Postagem com seus respectivos donos e categorias através do endpoint GET `/post`.
 - OBS: Será necessário enviar o token no header da requisição!
 
+- Exemplo de retorno da requisição:
+  ```json
+    [
+      {
+        "id": 1,
+        "title": "Novidades da programação",
+        "content": "Neque porro quisquam est qui dolorem ipsum quia dolor.",
+        "userId": 2,
+        "published": "2024-04-13T10:05:41.000Z",
+        "updated": "2024-04-13T10:05:41.000Z",
+        "user": {
+          "id": 2,
+          "displayName": "Fulano Santos",
+          "email": "fulanosantos@gmail.com",
+          "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
+        },
+        "categories": [
+          {
+            "id": 1,
+            "name": "Música"
+          },
+          {
+            "id": 2,
+            "name": "Kotlin"
+          }
+        ]
+      },
+      /* ... */
+    ]
+  ``` 
+
+<hr>
+
+
 ### Visualizar uma postagem específica com base no id através do endpoint GET `/post/:id`.
 - OBS: Será necessário enviar o token no header da requisição!
+- Exemplo de retorno da requisição:
+  ```json
+    {
+      "id": 2,
+      "title": "Injeção de dependências",
+      "content": "Neque porro quisquam est qui dolorem ipsum quia dolor.",
+      "userId": 2,
+      "published": "2024-04-13T10:08:09.000Z",
+      "updated": "2024-04-13T10:08:09.000Z",
+      "user": {
+        "id": 2,
+        "displayName": "Fulano Santos",
+        "email": "fulanosantos@gmail.com",
+        "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
+      },
+      "categories": [
+        {
+          "id": 3,
+          "name": "Android"
+        }
+      ]
+  }
+  ``` 
+
+<hr>
+
 
 ### Atualizar uma postagem sendo o proprietário dela através do endpoint PUT `/post/:id`.
 - OBS: Será necessário enviar o token no header da requisição!
+- Exemplo de corpo da requisição:
+  ```json
+    {
+      "title": "Injeção de dependências parte 2",
+      "content": "Texto atualizado"
+    }
+  ``` 
+
+- Exemplo de retorno da requisição:
+  ```json
+    {
+      "id": 2,
+      "title": "Injeção de dependências parte 2",
+      "content": "Texto atualizado",
+      "userId": 2,
+      "published": "2024-04-13T10:08:09.000Z",
+      "updated": "2024-04-13T10:08:09.000Z",
+      "user": {
+        "id": 2,
+        "displayName": "Fulano Santos",
+        "email": "fulanosantos@gmail.com",
+        "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
+      },
+      "categories": [
+        {
+          "id": 3,
+          "name": "Android"
+        }
+      ]
+    }
+  ``` 
 
 ### Deletar uma postagem sendo o proprietário dela através do endpoint DELETE `/post/:id`.
 - OBS: Será necessário enviar o token no header da requisição!
