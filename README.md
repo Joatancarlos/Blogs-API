@@ -65,9 +65,63 @@
 </ol>
 
 # Funcionalidades
-- Cadastrar um usuário através do endpoint POST `/user`.
-- Acessar a conta atráves do endpoint POST `/login`.
-- Visualizar todos os usuários cadastrados através do endpoint GET `/user`.
+### Cadastrar um usuário através do endpoint POST `/user`.
+- Exemplo do corpo da requisição:
+  ```json
+  {
+    "displayName": "Fulano Santos",
+    "email": "fulanosantos@gmail.com",
+    "password": "123456",
+    "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
+    // a imagem não é obrigatória
+  } 
+  ``` 
+- Retorno
+  ```json
+    {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZGlzcGxheU5hbWUiOiJGdWxhbm8gU2FudG9zIiwiZW1haWwiOiJmdWxhbm9zYW50b3NAZ21haWwuY29tIiwiaW1hZ2UiOiJodHRwOi8vNC5icC5ibG9nc3BvdC5jb20vX1lBNTBhZFEtN3ZRL1MxZ2ZSXzZ1ZnBJL0FBQUFBQUFBQUFrLzFFckpHZ1JXWkRnL1M0NS9icmV0dC5wbmciLCJpYXQiOjE3MTI5NjcxMzYsImV4cCI6MTcxMzU3MTkzNn0.L4R9fP6RbUDj8l_jNzy-xUuPx9bryEQeOaaFGjAwvfo"
+    }
+  ```
+
+### Acessar a conta atráves do endpoint POST `/login`.
+- Exemplo do corpo da requisição:
+  ```json
+  {
+    "email": "seu_email@domínio.com",
+    "senha": "sua_senha"
+  }
+  ```
+
+- Retorno
+  ```json
+    {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZGlzcGxheU5hbWUiOiJGdWxhbm8gU2FudG9zIiwiZW1haWwiOiJmdWxhbm9zYW50b3NAZ21haWwuY29tIiwiaW1hZ2UiOiJodHRwOi8vNC5icC5ibG9nc3BvdC5jb20vX1lBNTBhZFEtN3ZRL1MxZ2ZSXzZ1ZnBJL0FBQUFBQUFBQUFrLzFFckpHZ1JXWkRnL1M0NS9icmV0dC5wbmciLCJpYXQiOjE3MTI5NjcxMzYsImV4cCI6MTcxMzU3MTkzNn0.L4R9fP6RbUDj8l_jNzy-xUuPx9bryEQeOaaFGjAwvfo"
+    }
+  ```
+
+<hr>
+
+### Visualizar todos os usuários cadastrados através do endpoint GET `/user`.
+- **:warning: OBS: Será feita uma validação do token!
+
+- Exemplo de retorno da requisição:
+  ```json
+  [
+    {
+      "id": 1,
+      "displayName": "Brett Wiltshire",
+      "email": "brett@email.com",
+      "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
+    },
+    {
+      "id": 2,
+      "displayName": "Fulano Santos",
+      "email": "fulanosantos@gmail.com",
+      "image": "http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/brett.png"
+    }
+  ]
+  ```
+
 - Visualizar um usuário específico com base no id através do endpoint GET `/user/:id`.
 - Criar uma nova Categoria através do endpoint POST `/categories`.
 - Visualizar todas as Categorias através do endpoint GET `/categoriess`.
